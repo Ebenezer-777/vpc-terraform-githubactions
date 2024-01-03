@@ -1,17 +1,17 @@
 variable "vpc_cidr" {
-    description = "VPC CIDR Range"
-    type = string
-  
+  description = "VPC CIDR Range"
+  type        = string
+
 }
 
 variable "subnet_cidr" {
-    description = "Subnet CIDRs Range"
-    type = list(string)
-  
+  description = "Subnet CIDRs Range"
+  type        = list(string)
+
 }
 
 variable "subnet_names" {
   description = "Subnet Names"
-  type = list(string)
-  default = ["PublicSubnet1","PublicSubnet2"]
+  type        = list(string)
+  default     = ["PublicSubnet1", "PublicSubnet2"]
 }

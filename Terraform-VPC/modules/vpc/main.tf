@@ -1,6 +1,6 @@
 # VPC
 resource "aws_vpc" "my_vpc" {
-  cidr_block = var.vpc_cidr
+  cidr_block       = var.vpc_cidr
   instance_tenancy = "default"
 
   tags = {
@@ -10,11 +10,11 @@ resource "aws_vpc" "my_vpc" {
 
 # Two Subnets
 resource "aws_subnet" "my_subnet" {
-  count = length(var.subnet_cidr)
-  vpc_id     = aws_vpc.my_vpc.id
-  cidr_block = var.subnet_cidr[count.index]
-  availability_zone = data.aws_availability_zones.azs.names[count.index]
-  map_public_ip_on_launch = true  
+  count                   = length(var.subnet_cidr)
+  vpc_id                  = aws_vpc.my_vpc.id
+  cidr_block              = var.subnet_cidr[count.index]
+  availability_zone       = data.aws_availability_zones.azs.names[count.index]
+  map_public_ip_on_launch = true
 
   tags = {
     Name = var.subnet_names[count.index]
@@ -45,7 +45,7 @@ resource "aws_route_table" "my_rt" {
 }
 # Route Table Association
 resource "aws_route_table_association" "rta" {
-  count = length(var.subnet_cidr)
+  count          = length(var.subnet_cidr)
   subnet_id      = aws_subnet.my_subnet[count.index].id
   route_table_id = aws_route_table.my_rt.id
 }

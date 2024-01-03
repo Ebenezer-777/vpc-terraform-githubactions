@@ -2,7 +2,7 @@ data "aws_ami" "amazon-2" {
   most_recent = true
 
   filter {
-    name = "name"
+    name   = "name"
     values = ["amzn2-ami-hvm-*-x86_64-ebs"]
   }
 
@@ -14,7 +14,7 @@ data "aws_ami" "amazon-2" {
 }
 
 data "aws_availability_zones" "available" {
-    state = "available"
+  state = "available"
 }
 
 data "template_file" "user_data" {

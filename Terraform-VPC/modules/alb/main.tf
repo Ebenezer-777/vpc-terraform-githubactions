@@ -6,9 +6,9 @@ resource "aws_lb" "alb" {
   security_groups    = [var.sg_id]
   subnets            = var.subnets
 
- // enable_deletion_protection = true
+  // enable_deletion_protection = true
 
-/*  access_logs {
+  /*  access_logs {
     bucket  = aws_s3_bucket.lb_logs.id
     prefix  = "test-lb"
     enabled = true
@@ -42,7 +42,7 @@ resource "aws_lb_target_group" "tg" {
 
 # Target Group Attachment
 resource "aws_lb_target_group_attachment" "tga" {
-  count = length(var.instances)
+  count            = length(var.instances)
   target_group_arn = aws_lb_target_group.tg.arn
   target_id        = var.instances[count.index]
   port             = 80
