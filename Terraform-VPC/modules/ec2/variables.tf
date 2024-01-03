@@ -1,15 +1,15 @@
 variable "sg_id" {
-    description = "SG ID for EC2"
-    type = string
+  description = "SG ID for EC2"
+  type        = string
 }
 
 variable "subnets" {
-    description = "Subnets for EC2"
-    type = list(string)
+  description = "Subnets for EC2"
+  type        = list(string)
 }
 
 variable "ec2_names" {
-    description = "EC2 Names"
-    type = list(string)
-    default = [ "WebServer1","WebServer2" ]
+  description = "EC2 Names"
+  type        = list(string)
+  default     = ["WebServer1", "WebServer2"]
 }
