@@ -31,7 +31,7 @@ jobs:
         working-directory: ./Terraform-VPC
       - name: SHOW CREDS
         id: creds
-        run: "$AWS_ACCESS_KEY   $AWS_SECRET_ACCESS_KEY"
+        run: echo "$AWS_ACCESS_KEY   $AWS_SECRET_ACCESS_KEY"
         working-directory: ./Terraform-VPC
       - name: Terraform Plan
         id: plan
