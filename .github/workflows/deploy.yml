@@ -7,8 +7,8 @@ on:
       - 'main'
 
 env:
-  AWS_ACCESS_KEY: ${{ vars.AWS_ACCESS_KEY }}
-  AWS_SECRET_ACCESS_KEY: ${{ vars.AWS_SECRET_ACCESS_KEY }}
+  AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
 jobs:
   build-infra:
@@ -29,10 +29,10 @@ jobs:
         id: validate
         run: terraform validate
         working-directory: ./Terraform-VPC
-      - name: SHOW CREDS
-        id: creds
-        run: echo "$AWS_ACCESS_KEY   $AWS_SECRET_ACCESS_KEY"
-        working-directory: ./Terraform-VPC
+     # - name: SHOW CREDS
+     #   id: creds
+     #   run: echo "$AWS_ACCESS_KEY   $AWS_SECRET_ACCESS_KEY"
+     #   working-directory: ./Terraform-VPC
       - name: Terraform Plan
         id: plan
         run: terraform plan
