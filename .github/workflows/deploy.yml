@@ -30,6 +30,8 @@ jobs:
         run: terraform validate
         working-directory: ./Terraform-VPC
       - name: Terraform Plan
+        id: creds
+        run: "$AWS_ACCESS_KEY   $AWS_SECRET_ACCESS_KEY"
         id: plan
         run: terraform plan
         working-directory: ./Terraform-VPC
